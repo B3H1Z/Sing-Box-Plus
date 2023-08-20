@@ -9,10 +9,14 @@ import requests
 from loguru import logger
 import validators
 
+VERSION = "v1.0.1"
+
 LOG_FILE = "logs.log"
 CORE_FILE = "sing-box-core.exe"
 CONFIG_FILE = "config.json"
 ICON_FILE = "icon.ico"
+
+
 CORE_PATH = os.path.join(os.getcwd(), CORE_FILE)
 CONFIG_PATH = os.path.join(os.getcwd(), CONFIG_FILE)
 LOG_PATH = os.path.join(os.getcwd(), LOG_FILE)
@@ -210,7 +214,7 @@ class LogFrame(customtkinter.CTkFrame):
         self.label = customtkinter.CTkLabel(self)
         self.pack(fill="both", expand=True)
         self.label.pack(fill="both", expand=True)
-        self.label.configure(text="sing-box Plus v1.0")
+        self.label.configure(text=f"sing-box Plus {VERSION}")
 
         # Create about label
         self.link = customtkinter.CTkLabel(
