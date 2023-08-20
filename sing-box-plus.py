@@ -153,7 +153,9 @@ class SignBoxController():
         self.log_label.set_log("Downloading config file\nPlease wait...")
         self.download_config.configure(state="disabled")
         try:
-            r = requests.get(url, timeout=10)
+            session = requests.Session()
+            session.trust_env = False
+            r = session.get(url, timeout=10)
             if r.status_code != 200:
                 logger.error(f"Failed to download config file! Status code: {r.status_code}")
                 self.log_label.set_log(f"Failed to download config file!\nStatus code: {r.status_code}")
